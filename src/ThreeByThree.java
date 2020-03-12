@@ -8,16 +8,43 @@ public static void main(String [] args){
 
 //code to output all original values
 
+        System.out.println(list[0][0]);
+        System.out.println(list[0][1]);
+        System.out.println(list[0][2]);
+        System.out.println(list[1][0]);
+        System.out.println(list[1][1]);
+        System.out.println(list[1][2]);
+        System.out.println(list[2][0]);
+        System.out.println(list[2][1]);
+        System.out.println(list[2][2]);
 
 //code to change five of the values to positive
+        list[0][0]=1;
+        list[0][1]=2;
+        list[0][2]=3;
+        list[1][0]=4;
+        list[1][1]=5;
 
 
 //and the other four to negative
 
+        list[1][2]=-1;
+        list[2][0]=-2;
+        list[2][1]=-3;
+        list[2][2]=-4;
 
 //code to output a blank line separating output sets
 
+        System.out.println("");
 
-//code to output all array elements
+//code to output all array elementsSystem.out.println(list[0][0]);
+        System.out.println(list[0][1]);
+        System.out.println(list[0][2]);
+        System.out.println(list[1][0]);
+        System.out.println(list[1][1]);
+        System.out.println(list[1][2]);
+        System.out.println(list[2][0]);
+        System.out.println(list[2][1]);
+        System.out.println(list[2][2]);
         }
         }

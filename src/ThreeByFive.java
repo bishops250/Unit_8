@@ -37,14 +37,26 @@ public class ThreeByFive {
 
 // output all of the numbers again,
 // not just the changed ones
+        System.out.println(nums[0][0]);
+        System.out.println(nums[0][1]);
+        System.out.println(nums[0][2]);
+        System.out.println(nums[0][3]);
+        System.out.println(nums[0][4]);
+
+
+        System.out.println(nums[1][0]);
+        System.out.println(nums[1][1]);
+        System.out.println(nums[1][2]);
+        System.out.println(nums[1][3]);
         System.out.println(nums[1][4]);
 
-        for(int row=0; row<nums[0].length;row++) {
-            System.out.println(nums[row]);
-            for(int col=0; col<nums.length;col++) {
+        System.out.println(nums[2][0]);
+        System.out.println(nums[2][1]);
+        System.out.println(nums[2][2]);
+        System.out.println(nums[2][3]);
+        System.out.println(nums[2][4]);
 
-            }
-        }
+
     }
 }
 
