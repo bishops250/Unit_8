@@ -24,4 +24,17 @@ public class TwoDArrays {
         return sum;
     }
 
+    public static boolean isSquare(int[][] arr) {
+        int rowLength= arr.length;
+        for(int row = 0; row<arr.length;row++) {
+            for(int column=0; column<arr[row].length;column++) {
+                if(rowLength!=arr[row].length) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+
 }
