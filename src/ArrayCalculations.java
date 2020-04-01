@@ -9,7 +9,7 @@ public class ArrayCalculations {
         /* how could I write the check so It works in all situations. If the one works and the other does'nt It won't
         detect it. Or will It?*/
 
-        for(int i=0; i<arr.length && i!=row;i++) {
+        for(int i=0; i<arr.length;i++) {
             if(row==i) {
                 for(int column=0; column<arr[i].length; column++) {
                     total+=arr[i][column];
