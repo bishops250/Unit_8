@@ -81,11 +81,10 @@ I then use the up diagonal sum to test against sum of rows, diagonals, columns, 
        for(int row=0;row<grid.length;row++) { //adds the rowsum of each row to the array.
            resultArray.add(rowSum(row));
        }
-       for(int row2=0;row2<grid.length;row2++) {
-           for(int column=0;column<grid[row2].length;column++) { //adds the column sum of each column to the array.
+
+           for(int column=0;column<grid.length;column++) { //adds the column sum of each column to the array.
                resultArray.add(colSum(column));
            }
-       }
 
        for(int traverse:resultArray) { //traverses the "resultArray"
            if(testNum!=traverse) { //returns false if testNum does not equal the traverse variable.
