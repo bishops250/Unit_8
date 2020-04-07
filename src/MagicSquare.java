@@ -62,7 +62,7 @@ public class MagicSquare {
     public int downDiagSum() {
         // <<< Complete the code >>>
         int total=0;
-            for (int row = 0; row < grid.length; row++) { 
+            for (int row = 0; row < grid.length; row++) {
                 total += grid[row][row];
             }
             return total;
@@ -83,7 +83,7 @@ I then use the up diagonal sum to test against sum of rows, diagonals, columns, 
        }
        for(int row2=0;row2<grid.length;row2++) {
            for(int column=0;column<grid[row2].length;column++) { //adds the column sum of each column to the array.
-               resultArray.add(grid[row2][column]);
+               resultArray.add(colSum(column));
            }
        }
 
