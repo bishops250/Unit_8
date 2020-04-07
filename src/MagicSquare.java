@@ -1,9 +1,25 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ *                                                      MagicSquare-Class
+ * @author Aron D. Bishop
+ * @version 1.0
+ * @since April 6, 2020
+ *
+ *Descriptions:
+ * The Java class "MagicSquare" includes one constructor and no static methods, but 6 methods. "MagicSquare"
+ * class takes one parameter, which is a 2D Array containing user values. The "MagicSquare" class contains 6 methods
+ */
 public class MagicSquare {
-    private int[][] grid;
+    private int[][] grid; //Instance variable containing the 2D Array that is supposedly a "MagicSquare"
 
+    /**
+     *                                              MagicSquare-Constructor
+     *
+     * @param g g is the local parameter storing the user entered 2D Array. This Value is then passed to
+     *          instant variable called "grid".
+     */
     public MagicSquare(int[][] g) {
         grid = g;
     }
@@ -28,7 +44,10 @@ public class MagicSquare {
         return total;
     }
 
-
+    /** upDiagSum-Method
+     *
+     * @return
+     */
     public int upDiagSum() {
         // <<< Complete the code >>>
         int total = 0;
@@ -43,7 +62,7 @@ public class MagicSquare {
     public int downDiagSum() {
         // <<< Complete the code >>>
         int total=0;
-            for (int row = 0; row < grid.length; row++) { //how can be written when row and column are not equal??????
+            for (int row = 0; row < grid.length; row++) { 
                 total += grid[row][row];
             }
             return total;
@@ -53,24 +72,27 @@ public class MagicSquare {
     public boolean isMagicSquare() {
         // <<< Complete the code >>>
 
-       int testNum = upDiagSum();
-       ArrayList<Integer>resultArray=new ArrayList<Integer>(Arrays.asList(downDiagSum()));
+       int testNum = upDiagSum(); /* sets "testNum" as value returned from the method "upDiagSum()"
+I then use the up diagonal sum to test against sum of rows, diagonals, columns, etc. */
 
-       for(int row=0;row<grid.length;row++) {
+       ArrayList<Integer>resultArray=new ArrayList<Integer>(Arrays.asList(downDiagSum())); /* stores the
+       sum of diagonal up, row, and column. Each sum is individually listed with an index.*/
+
+       for(int row=0;row<grid.length;row++) { //adds the rowsum of each row to the array.
            resultArray.add(rowSum(row));
        }
        for(int row2=0;row2<grid.length;row2++) {
-           for(int column=0;column<grid[row2].length;column++) {
+           for(int column=0;column<grid[row2].length;column++) { //adds the column sum of each column to the array.
                resultArray.add(grid[row2][column]);
            }
        }
 
-       for(int traverse:resultArray) {
-           if(testNum!=traverse) {
+       for(int traverse:resultArray) { //traverses the "resultArray"
+           if(testNum!=traverse) { //returns false if testNum does not equal the traverse variable.
                return false;
            }
        }
-       return true;
+       return true; //returns true if testNum equals all the values of the "resultArray".
     }
 
 
