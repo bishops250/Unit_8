@@ -3,13 +3,14 @@ import java.util.Arrays;
 
 /**
  *                                                      MagicSquare-Class
+ * Descriptions:
+ *  * The Java class "MagicSquare" includes one constructor and no static methods, but 6 methods. "MagicSquare"
+ *  * class takes one parameter, which is a 2D Array containing user values. The "MagicSquare" class contains 6 methods
  * @author Aron D. Bishop
  * @version 1.0
  * @since April 6, 2020
  *
- *Descriptions:
- * The Java class "MagicSquare" includes one constructor and no static methods, but 6 methods. "MagicSquare"
- * class takes one parameter, which is a 2D Array containing user values. The "MagicSquare" class contains 6 methods
+ *
  */
 public class MagicSquare {
     private int[][] grid; //Instance variable containing the 2D Array that is supposedly a "MagicSquare"
@@ -25,8 +26,13 @@ public class MagicSquare {
     }
 
 
+    /**
+     * 
+     * @param row
+     * @return
+     */
     public int rowSum(int row) {
-        // <<< Complete the code >>>
+
         int total=0;
       for(int column=0; column<grid[row].length;column++) {
           total+=grid[row][column];
@@ -34,9 +40,13 @@ public class MagicSquare {
       return total;
         }
 
-
+    /**
+     *
+     * @param col
+     * @return
+     */
     public int colSum(int col) {
-        // <<< Complete the code >>>
+
         int total=0;
         for(int row=0; row<grid.length;row++) {
             total+=grid[row][col];
@@ -44,38 +54,56 @@ public class MagicSquare {
         return total;
     }
 
-    /** upDiagSum-Method
+    /**                                         upDiagSum-Method
      *
-     * @return
+     * The upDiagSum method assumes all the array and columns are lined up similar to square.
+     * This method then finds the diagonal numbers going upwards in the square(Array)
+     * and then returns the total.
+     *
+     * @return  returns the sum of numbers in a diagonal going upwards.
      */
     public int upDiagSum() {
-        // <<< Complete the code >>>
+
         int total = 0;
         for (int row = 0; row < grid.length; row++) {
             int col = grid.length - row - 1;
             total += grid[row][col];
         }
-        return total;
+        return total; //returns the same of the diagonal numbers going upwards.
     }
 
-
+    /**
+     *                                          downDiagSum-Method
+     *
+     * The downDiagSum method assumes all the array and columns are lined up similar to square.
+     * This method then finds the diagonal numbers going downward in the square(Array)
+     * and then returns the total.
+     *
+     * @return returns the sum of numbers in a diagonal going downwards.
+     */
     public int downDiagSum() {
-        // <<< Complete the code >>>
+
         int total=0;
-            for (int row = 0; row < grid.length; row++) {
+            for (int row = 0; row < grid.length; row++) { //each iteration moves over one column and one row.
                 total += grid[row][row];
             }
-            return total;
+            return total; //returns the same of the diagonal numbers going downwards.
     }
 
-
+    /**
+     *                                              IsMagicSquare-Method
+     *
+     * The "IsMagicSquare" method
+     *
+     * @return "IsMagicSquare method" returns true if array is "MagicSquare" and false if it is not.
+     */
     public boolean isMagicSquare() {
-        // <<< Complete the code >>>
+
 
        int testNum = upDiagSum(); /* sets "testNum" as value returned from the method "upDiagSum()"
 I then use the up diagonal sum to test against sum of rows, diagonals, columns, etc. */
 
-       ArrayList<Integer>resultArray=new ArrayList<Integer>(Arrays.asList(downDiagSum())); /* stores the
+       ArrayList<Integer>resultArray= new ArrayList<>(Arrays.asList(downDiagSum())); /* stores the
        sum of diagonal up, row, and column. Each sum is individually listed with an index.*/
 
        for(int row=0;row<grid.length;row++) { //adds the rowsum of each row to the array.
