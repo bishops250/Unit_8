@@ -46,14 +46,30 @@ public class Sound {
      */
     public void trimSilenceFromBeginning() {
 
-        
+
         // How do we do things you can't delete an array we must create a new array
-        for(int i= samples.length;i>0;i--) {
+ /*       for(int i= samples.length;i>0;i--) {
             if(samples[i]==0) {
-                samples.
+
             }
         }
+*/
+        int numOfZeros=0;
+        for(int i=0;i<samples.length;i++) {
+            if(samples[i]==0) {
+                numOfZeros++;
+            }
+        }
+        int arrayToBecomeSamples[]=new int[samples.length-numOfZeros];
+        int indexOfNewNum=0;
+        for(int i2=0;i2<samples.length && indexOfNewNum!=arrayToBecomeSamples.length-1;i2++) {
 
+            if(samples[i2]!=0) {
+                arrayToBecomeSamples[indexOfNewNum]=samples[i2];
+                indexOfNewNum++;
+            }
+        }
+        this.samples=arrayToBecomeSamples;
     }
 
     /**
