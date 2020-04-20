@@ -47,6 +47,20 @@ public class Sound {
     public void trimSilenceFromBeginning() {
 
         int zerosToCut = 0;
+        while (samples[zerosToCut] == 0) {
+            zerosToCut++;
+        }
+        int arrayToBecomeSamples[] = new int[samples.length - zerosToCut];
+
+        for (int i2 = 0; i2 < arrayToBecomeSamples.length; i2++) {
+            arrayToBecomeSamples[i2] = samples[zerosToCut + i2];
+        }
+        samples = arrayToBecomeSamples;
+
+
+        /*
+//This could work for loop, but its messy and takes alot more code than it should. It could be done with a simple while.
+
 
         for (int i = 0; i < samples.length - 1; i++) {
             if (samples[i] == 0 && samples[i + 1] != 0 || samples[i] != 0 && samples[i + 1] == 0) {
@@ -55,15 +69,7 @@ public class Sound {
             } else if (samples[i] == 0 && samples[i + 1] == 0) {
                 zerosToCut++;
             }
-        }
-        int arrayToBecomeSamples[] = new int[samples.length - zerosToCut];
-        for (int i2 = 0; i2 < arrayToBecomeSamples.length; i2++) {
-            for (int count = zerosToCut; count < samples.length; count++) {
-                arrayToBecomeSamples[i2] = samples[count];
-                break;
-            }
-        }
-        samples = arrayToBecomeSamples;
+        };*/
     }
 
     /**
