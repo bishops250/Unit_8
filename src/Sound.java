@@ -30,8 +30,8 @@ public class Sound {
             if (samples[i] > limit) {
                 samples[i] = limit;
                 numChanged++;
-            } else if (samples[i] < limit) {
-                samples[i] = limit;
+            } else if (samples[i] < limit * -1) {
+                samples[i] = limit * -1;
                 numChanged++;
             }
         }
@@ -46,32 +46,26 @@ public class Sound {
      */
     public void trimSilenceFromBeginning() {
 
+        int zerosToCut = 0;
 
-        // How do we do things you can't delete an array we must create a new array
- /*       for(int i= samples.length;i>0;i--) {
-            if(samples[i]==0) {
-
+        for (int i = 0; i < samples.length - 1; i++) {
+            if (samples[i] == 0 && samples[i + 1] != 0 || samples[i] != 0 && samples[i + 1] == 0) {
+                zerosToCut++;
+                break;
+            } else if (samples[i] == 0 && samples[i + 1] == 0) {
+                zerosToCut++;
             }
         }
-*/
-        int numOfZeros=0;
-        for(int i=0;i<samples.length;i++) {
-            if(samples[i]==0) {
-                numOfZeros++;
+        int arrayToBecomeSamples[] = new int[samples.length - zerosToCut];
+        for (int i2 = 0; i2 < arrayToBecomeSamples.length; i2++) {
+            for (int count = zerosToCut; count < samples.length; count++) {
+                arrayToBecomeSamples[i2] = samples[count];
+                break;
             }
         }
-        int arrayToBecomeSamples[]=new int[samples.length-numOfZeros];
-        int indexOfNewNum=0;
-        for(int i2=0;i2<samples.length && indexOfNewNum!=arrayToBecomeSamples.length-1;i2++) {
-
-            if(samples[i2]!=0) {
-                arrayToBecomeSamples[indexOfNewNum]=samples[i2];
-                indexOfNewNum++;
-            }
-        }
-        this.samples=arrayToBecomeSamples;
+        samples = arrayToBecomeSamples;
     }
-ap
+
     /**
      * accessor method used for testing purposes - Not part of original program
      */
