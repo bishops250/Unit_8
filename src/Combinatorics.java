@@ -21,17 +21,22 @@ public class Combinatorics {
      * (b).
      */
     public static void numCombinations(int n, int r) { /* to be implemented in part (b) */
-        int factorialNum = factorial(n);
+
 
         int possibleCombinations = 0;
 
-        if (r > factorialNum) {
+        if (r > n) {
             possibleCombinations = 0;
-        } else if (r <= factorialNum) {
-            possibleCombinations = (int) (Math.abs(n) / Math.abs(Math.abs(r) * (factorialNum - r)));
+        } else if (r <= n) {
+            possibleCombinations = factorial(n) / (factorial(r) * factorial(n - r));
         }
 
-        System.out.println("There are " + possibleCombinations + " items from " + r + " choices.");
+        System.out.println("There are " + possibleCombinations + " ways of choosing " + r +
+                " items from " + n + " choices.");
 
+    }
+
+    public static void main(String[] args) {
+        numCombinations(5, 3);
     }
 }
