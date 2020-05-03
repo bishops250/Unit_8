@@ -36,7 +36,7 @@ public class Combinatorics {
 
     }
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         numCombinations(5, 3);
-    }
+    }*/
 }
