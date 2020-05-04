@@ -19,10 +19,11 @@ public class StringManip {
      */
     public static String reverseString(String str) { /* to be implemented in part (a) */
         String newString = "";
-        for (int i = str.length(); i > 0; i--) {
+        for (int i = str.length() - 1; i >= 0; i--) {
             newString += str.substring(i, i + 1);
+
         }
-        System.out.println(newString);
+       
         return removeSpaces(newString);
     }
 
@@ -34,9 +35,9 @@ public class StringManip {
      */
     public static void palindromeChecker(String str) { /* to be implemented in part (b) */
         if (reverseString(str).equals(removeSpaces(str))) {
-            System.out.println(str + " is a palindrome!!");
+            System.out.println(str + " is a palindrome");
         } else {
-            System.out.println(str + " is not a palindrome!!");
+            System.out.println(str + " is not a palindrome");
         }
     }
 
