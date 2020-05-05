@@ -29,7 +29,7 @@ public class RepairSchedule {
      * Precondition: 0 <= m < numberOfMechanics and b >= 0
      */
     public boolean addRepair(int m, int b) {
-        /* to be implemented in part (a) */
+         //to be implemented in part (a)
         for (int i = 0; i < schedule.size(); i++) {
             if (schedule.get(i).getMechanicNum() == m) {
                 return false;
@@ -37,6 +37,7 @@ public class RepairSchedule {
                 return false;
             }
         }
+        schedule.add(new CarRepair(m, b));
         return true;
     }
 
