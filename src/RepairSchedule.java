@@ -50,18 +50,18 @@ public class RepairSchedule {
     public ArrayList<Integer> availableMechanics() {
         /* to be implemented in part (b) */
         ArrayList<Integer> availableMechanic = new ArrayList<>();
-        Boolean mechanicAvailable = Boolean.TRUE;
+        boolean mechanicStatus = true;
 
         for (int i = 0; i < numberOfMechanics; i++) {
-            for (int i2 = 0; i2 < schedule.size(); i2++) {
-                if (schedule.get(i2).getMechanicNum() == i) {
-                    mechanicAvailable = Boolean.FALSE;
+            for (int count = 0; count < schedule.size(); count++) {
+                if (schedule.get(count).getMechanicNum() == i) {
+                    mechanicStatus = false;
                     break;
-                } else if (schedule.get(i2).getMechanicNum() != i) {
-                    mechanicAvailable = Boolean.TRUE;
+                } else if (schedule.get(count).getMechanicNum() != i) {
+                    mechanicStatus = true;
                 }
             }
-            if (mechanicAvailable = Boolean.TRUE) {
+            if (mechanicStatus) {
                 availableMechanic.add(i);
             }
 
